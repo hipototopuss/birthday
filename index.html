@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday!</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            text-align: center;
+            background-color: #fff0f5; /* Light pink background */
+           
+        }
+        .card {
+            width: 80%;
+            max-width: 400px;
+            margin: 50px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            position: relative;
+        }
+        .photo {
+            width: 100%;
+            border-radius: 10px;
+        }
+        h2 {
+            color: #ff66b2; /* Cute pink */
+        }
+        p {
+            color: #444;
+        }
+        button {
+            background-color: #ff66b2;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            display: none; /* Initially hidden */
+        }
+        button:hover {
+            background-color: #ff3385;
+        }
+        #timer {
+            font-size: 18px;
+            font-weight: bold;
+            color: #ff66b2; /* Cute pink */
+            margin-bottom: 10px;
+        }
+        .lock-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 5);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10px;
+        }
+        .lock-overlay img {
+            width: 150px;
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <div class="lock-overlay" id="lock">
+            <img src="IMG_20231231_194228_670~2.jpg" alt="Lock GIF">
+            <p id="timer">Unlocking in: </p>
+        </div>
+
+        <img src="3d047b20-a2f8-45b7-854c-b5c447f911cd.gif" alt="Your Image" class="photo">
+        <h2>HAPPY BIRTHDAY SUBHANGI (⁠~⁠‾⁠▿⁠‾⁠)⁠~</h2>
+        <p> Happy birthday baby hodaii happy thaka hodaii cutee ke smile kori thaka tumi best hoi fr bestttt ekdom mur perfect angelic girlfriend i lovee youu jaann 
+        I wish that tumi tumi hodaii life t happiness pua hodai smile kori thaka aru sob pua life t ji wish koraa Mmwahhh!! </p>
+
+        <button onclick="nextPage('click.html')" id="nextBtn">Next (⁠ ⁠ꈍ⁠ᴗ⁠ꈍ⁠)</button>
+    </div>
+
+    <script>
+        function nextPage(page) {
+            window.location.href = page;
+        }
+
+        function updateTimer() {
+            const unlockTime = new Date("Feb 24, 2025 00:00:00").getTime();
+            const timerElement = document.getElementById("timer");
+            const lockOverlay = document.getElementById("lock");
+            const nextBtn = document.getElementById("nextBtn");
+
+            function checkTime() {
+                const now = new Date().getTime();
+                const timeLeft = unlockTime - now;
+
+                if (timeLeft > 0) {
+                    const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+                    const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                    const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+                    const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+
+                    timerElement.innerHTML = `Unlocking in: ${days}d ${hours}h ${minutes}m ${seconds}s`;
+                } else {
+                    lockOverlay.style.display = "none";
+                    nextBtn.style.display = "block";
+                    clearInterval(countdown);
+                }
+            }
+
+            checkTime();
+            const countdown = setInterval(checkTime, 1000);
+        }
+
+        updateTimer();
+    </script>
+
+</body>
+</html>

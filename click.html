@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Birthday Surprise</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* Optional inline CSS for demonstration */
+    body {
+      background-color: #fff0f5;
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .card {
+      background-color: #ffe6f2;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+      padding: 20px;
+      text-align: center;
+      width: 90%;
+      max-width: 400px;
+    }
+    h1 {
+      color: #ff66b2;
+    }
+    #messageDisplay {
+      font-size: 1.2em;
+      margin: 20px 0;
+      min-height: 40px; /* Reserve space for the message */
+    }
+    /* Small image styling */
+    #imageDisplay {
+      width: 150px;  /* Adjust size as needed */
+      height: auto;
+      margin: 10px auto;
+      display: block;
+    }
+    button {
+      background-color: #ff1493;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      font-size: 1em;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #d1006c;
+    }
+    #clickCount {
+      font-size: 1em;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>Happy Birthday, Subhangii!</h1>
+    
+    <p id="messageDisplay"> Mmmmmmmwwwaaahhhh</p>
+   
+    <img id="imageDisplay" src="" alt="Surprise Image" />
+   
+    <button id="surpriseButton">(⁠＾⁠3⁠＾⁠)</button>
+    
+    <p id="clickCount">click click click click</p>
+  </div>
+  
+  <script>
+    // Initialize the click counter
+    let clickCount = 0;
+    
+    // Array of birthday messages
+    const messages = [
+      "Happyyy Birthdayy Subhangiiiii",
+      "Mmmmmmwwwaaaahhhhhh, Happy birthday dehamanu :3",
+      "Awwwwwww mur fusukolii joniiiii dangor hoiii gollll",
+      "Uwaaiiiiiiii happyyy birthdayyyyyy dehaaaaaaaaaaa!!",
+      "Nom Nom Nom",
+      "Happyy birthday murr sunsunimanu konnn",
+      "Mmmmmwwwaaahhhh Mmmmmmwwwahhhhhh",
+      "happy birthday princess 💞",
+      "Happy birthday mur cutiee patootie angelic kucchi muchiii fusu wusu dhunu dhunu cutee adorable pretty beautiful gorgeous ekdommm dhuniya cutest girlfriend mmmmmmmwwwaaahhhh",
+      "MMMMMMMWWWAAAHHHH"
+      
+    ];
+    
+    // Array of cute shades of pink for each message
+    const messageColors = [
+      "#FF69B4", // Pink
+      "#FF69B4", // LightPink
+      "#FF69B4", // HotPink
+      "#FF69B4", // DeepPink
+      "#FF69B4", // Carnation Pink
+      "#FF69B4", // Cotton Candy Pink
+      "#FF69B4", // Pink Lace
+      "#FF69B4", // Soft Pastel Pink
+      "#FF69B4", // Material Pink
+      "#FF69B4"  // Vivid Pink
+    ];
+    
+    // Array of local image file names (ensure these images are in your project folder)
+    const images = [
+      "IMG-20240228-WA0352~3.jpg",
+      "Screenshot_20240919-200403~2.png",
+      "IMG-20250114-WA0033~2.jpg",
+      "IMG_20240404_111144_353-2.jpg",
+      "IMG-20241018-WA0016~2.jpg",
+      "IMG-20241026-WA0052~2.jpg",
+      "VID-20240329-WA01483-ezgif.com-video-to-gif-converter.gif",
+      "Screenshot_20241212-192907~2.png",
+      "VID-20240603-WA00623-ezgif.com-video-to-gif-converter.gif",
+      "IMG_20250223_062121_369~2.jpg"
+    ];
+    
+    // Get references to DOM elements
+    const button = document.getElementById("surpriseButton");
+    const messageDisplay = document.getElementById("messageDisplay");
+    const imageDisplay = document.getElementById("imageDisplay");
+    const clickCountDisplay = document.getElementById("clickCount");
+    
+    // Add event listener for the button click
+    button.addEventListener("click", function() {
+      clickCount++; // Increase the click count
+      
+      // Update the on-screen click counter
+      clickCountDisplay.textContent = " >~< HARDER >~< ";
+      
+      // Display the corresponding message and set its color if available
+      if (clickCount <= messages.length) {
+        messageDisplay.textContent = messages[clickCount - 1];
+        messageDisplay.style.color = messageColors[clickCount - 1];
+      }
+      
+      // Display the corresponding image if available
+      if (clickCount <= images.length) {
+        imageDisplay.src = images[clickCount - 1];
+      }
+      
+      // After the 10th click, redirect to the next page
+      if (clickCount === messages.length) {
+        // Optional delay so the final message/image is visible briefly
+        setTimeout(function() {
+          window.location.href = "letter.html"; 
+        }, 1000);
+      }
+    });
+  </script>
+</body>
+</html>
